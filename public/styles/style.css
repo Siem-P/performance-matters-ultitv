@@ -2,6 +2,23 @@
     --primary-color: #003434;
     --secondary-color: #004b4b;
     --tertiary: #FED55D;
+    --dark-green: #002525;
+
+    --goal-green: #096F19;
+    --assist-blue: #1757A1;
+    --block-red: #841313;
+    --turnover-yellow: #B29A17;
+}
+
+@font-face {
+    font-family: "Roboto Mono";
+    src: url('../fonts/RobotoMono.ttf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Roboto Slab";
+    src: url('../fonts/RobotoSlab.ttf');
 }
 
 *{
@@ -12,4 +29,112 @@
 
 body{
     background: var(--primary-color);
+    font: 100%/1.4 "Roboto Slab", monospace;
+}
+/* -------------------------------------------------------------------------- */
+/*                                   Players                                  */
+/* -------------------------------------------------------------------------- */
+.players{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.team-players{
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.3em;
+}
+
+/* --------------------------- Team name & legend --------------------------- */
+.players-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: var(--secondary-color);
+    color: #fff;
+}
+
+.team-name{
+    font-size: 1.1rem;
+    width: 75%;
+}
+
+.legend{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.1rem;
+    column-gap: 0.7em;
+    width: 25%;
+}
+
+.legend p{
+    text-align: center;
+}
+
+/* ------------------------------- Player row ------------------------------- */
+.player-card{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6em 1em;
+    background: var(--dark-green);
+}
+
+.card-left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 0.5em;
+    width: 75%;
+}
+
+.player-number{
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+}
+
+.player-name{
+    font-size: 1.1rem;
+    color: white;
+    width: 65%;
+    word-break: break-all;
+}
+
+.card-right{
+    display: flex;
+    width: 25%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.actions{
+    display: flex;
+    column-gap: 0.3rem;
+}
+
+.action{
+    color: white;
+    font-size: 1.1rem;
+    font-family: 'Roboto Mono';
+    border-radius: 0.5rem;
+    padding: 0.1em 0.2em;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+}
+
+.goal{
+    background: var(--goal-green); 
+}
+
+.assist{
+    background: var(--assist-blue);
+}
+
+.block{
+    background: var(--block-red);
+}
+
+.turnover{
+    background: var(--turnover-yellow);
 }
