@@ -138,3 +138,64 @@ body{
 .turnover{
     background: var(--turnover-yellow);
 }
+
+
+
+.scoreboard {
+    margin-top: 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: var(--secondary-color);
+    color: #fff;
+    min-height: 10em;
+}
+
+.ul-container {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.3em;
+    column-gap: 0.3em;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.ul-container ul li {
+    list-style-type: none;
+}
+
+.score-info-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.8em;
+    align-items: center;
+}
+
+.score-player-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 0.5px solid #5E5E5E;
+    padding: 0 0.5em;
+    align-items: center;
+    min-width: 10em;
+    width: auto;
+    min-height: 1.75em;
+    background-color: #D9D9D9;
+    color: black;
+    font-weight: 500;
+    /* column-gap: 0.4em; */
+}
+
+.bulletpoint {
+    width: 0.8em;
+    margin: auto;
+    height: 0.8em;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+}
+
+.score-count {
+    color: #FFD363;
+}
