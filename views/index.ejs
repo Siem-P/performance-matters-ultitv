@@ -1,24 +1,11 @@
 <%- include('./partials/head') %>
 
 <!-- Header -->
-<section class="heading">
-
-</section>
+<section class="heading"></section>
 
 <main>
-	<!-- Game score -->
-	<section class="game-score">
-
-	</section>
-
 	<!-- Navigation -->
 	<section class="navigation">
-
-	</section>
-
-	<!-- Scoreboard -->
-	<section class="scoreboard">
-
 	</section>
 
 	<!-- Players -->
@@ -180,6 +167,24 @@
 			</div>
 		</div>
 	</section>
+
+  <!-- Scoreboard -->
+  <section class="scoreboard">
+    <ul>
+      <li>
+				<div class="minute-count"><%# Score Counter %></div>
+				<div class="score-count"><%# Score Counter %></div>
+				<span class="bulletpoint"><%# Score Counter %></span>
+				<div class="score-player-card">
+					<span class="icon"></span>
+					<h3><%# Player Name %></h3>
+				</div>
+			</li>
+    </ul>
+  </section>
+
+  <!-- Players -->
+  <section class="players"></section>
 </main>
 
 <%- include('./partials/footer') %>
