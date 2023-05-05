@@ -2,6 +2,8 @@ import express from "express";
 import bodyParser from "body-parser"
 
 const server = express();
+// Api url
+const apiUrl = "https://ultitv-api.netlify.app/api/v2"
 
 server.set("view engine", "ejs")
 server.set("views", "./views")
@@ -16,5 +18,18 @@ server.listen(server.get("port"), () => {
 })
 
 server.get("/", async (req, res) => {
-    res.render("index")
+    // TODO - Variable game id
+    const gameData = await dataFetch(`${apiUrl}/games?id=111`)
+    const playerData = await dataFetch(`${apiUrl}/players`)
+    const gameStats = await dataFetch(`${apiUrl}/stats?id=111`)
+
+    res.render("index", { gameData, playerData, gameStats })
 })
+
+// Api call function
+async function dataFetch(url) {
+    const data = await fetch(url)
+        .then((response) => response.json())
+        .catch((error) => error)
+    return data
+}

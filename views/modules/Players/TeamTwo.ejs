@@ -2,7 +2,7 @@
 <section class="team-players team-two-players">
     <!-- Team name & legend -->
     <div class="players-heading">
-        <h2 class="team-name">Team 2</h2>
+        <h2 class="team-name"><%- gameData.games[0].team2.name %></h2>
         <div class="legend">
             <p>G</p>
             <p>A</p>
@@ -11,21 +11,21 @@
         </div>
     </div>
 
-    <% for( let index = 1; index < 26; index++ ) { %>
+    <!-- Get all players from team 2 -->
+	<% const team2Players = playerData.players.filter(player => player.team.name === gameData.games[0].team2.name) %>
+
+    <% team2Players.forEach(player => { %>
     <!-- Player row -->
     <div class="player-card">
         <div class="card-left">
-            <p class="player-number"><%- index %></p>
-            <p class="player-name">John Smith</p>
+            <p class="player-number"><%- player.jerseyNumber %></p>
+            <p class="player-name"><%- player.name %></p>
         </div>
         <div class="card-right">
             <div class="actions">
-                <p class="action goal">1</p>
-                <p class="action assist">2</p>
-                <p class="action block">0</p>
-                <p class="action turnover">2</p>
+                <%- include('./actions', { player:player, gameStats }) %>
             </div>
         </div>
     </div>
-    <% } %>
+    <% }) %>
 </section>
