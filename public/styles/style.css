@@ -370,13 +370,13 @@ nav{
     font-weight: 400;
     font-size: 1em;
     background: var(--secondary-color);
-    padding: 0.5em 0.5em;
+    padding: 0.5em 0.8em;
 }
 
 .fact-answer{
     font-weight: 300;
     font-size: 0.9em;
-    padding: 0.5em 0.5em;
+    padding: 0.5em 0.8em;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -519,6 +519,27 @@ nav{
 
     .team-two-players .actions{
         flex-direction: row-reverse;
+    }
+
+    /* ---------------------------- Extra info modal ---------------------------- */
+    .dialog-content{
+        flex-flow: row wrap;
+    }
+
+    .fact-dialog h1{
+        font-size: 1.5em;
+    }
+
+    .close-dialog{
+        font-size: 1.5em;
+    }
+
+    .fact-title{
+        font-size: 1.1em;
+    }
+
+    .fact-answer{
+        font-size: 1em;
     }
 }
 
