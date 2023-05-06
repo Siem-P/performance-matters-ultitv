@@ -4,6 +4,7 @@
     --primary-color-lighter: #125f5f;
     --tertiary: #FED55D;
     --dark-green: #002525;
+    --dark-green-hover: #023030;
     --text-color: #ffffff;
 
     --goal-green: #096F19;
@@ -74,12 +75,12 @@ header{
     white-space: nowrap;
 }
 
-h1::after{
+header h1::after{
     content: '•';
     padding-left: .5rem;
 }
 
-h1{
+header h1{
     font-weight: 300;
     font-size: 1.1rem;
 }
@@ -228,6 +229,11 @@ nav{
     background: var(--dark-green);
 }
 
+.player-card:hover{
+    cursor: pointer;
+    background: var(--primary-color-lighter);
+}
+
 .card-left{
     display: flex;
     flex-direction: row;
@@ -288,6 +294,89 @@ nav{
 
 .reduced-opacity{
     opacity: 0.3;
+}
+
+/* ------------------------------ Player modal ------------------------------ */
+.fact-dialog{
+    background: var(--primary-color);
+    margin: auto;
+    border: solid 4px var(--secondary-color);
+    width: 90%;
+    border-radius: 0.5em;
+}
+
+.fact-dialog::backdrop{
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.fact-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.dialog-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--secondary-color);
+    padding: 0.3em 0.6em;
+    margin-top: 0.8em;
+}
+
+.fact-dialog h1{
+    font-weight: 400;
+    font-size: 1.2em;
+    padding: 0.1em 0.5em;
+}
+
+.close-dialog{
+    background: none;
+    border: none;
+    line-height: 1;
+    font-weight: 400;
+    display: block;
+    margin-right: 0.5em;
+}
+
+.close-dialog:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.close-dialog:focus-visible{
+    outline: none;
+}
+
+.dialog-content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    padding: 0.8em 0.5em;
+}
+
+.fact-group{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    border: solid 2px var(--secondary-color);
+    background: var(--primary-color-lighter);
+    border-radius: 0.3em;
+    box-shadow: .1rem .1rem .3rem 0rem rgba(0, 0, 0, 0.7);
+    padding: 0.8em 0;
+}
+
+.fact-title{
+    font-weight: 400;
+    font-size: 1em;
+    background: var(--secondary-color);
+    padding: 0.5em 0.5em;
+}
+
+.fact-answer{
+    font-weight: 300;
+    font-size: 0.9em;
+    padding: 0.5em 0.5em;
 }
 
 /* -------------------------------------------------------------------------- */
