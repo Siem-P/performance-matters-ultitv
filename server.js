@@ -26,6 +26,12 @@ server.get("/", async (req, res) => {
     res.render("index", { gameData, playerData, gameStats })
 })
 
+server.post("/playerform", async (req, res) => {
+    console.log(req.body)
+
+    res.redirect("/")
+})
+
 // Api call function
 async function dataFetch(url) {
     const data = await fetch(url)
