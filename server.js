@@ -20,7 +20,7 @@ server.listen(server.get("port"), () => {
 server.get("/", async (req, res) => {
     // TODO - Variable game id
     const gameData = await dataFetch(`${apiUrl}/games?id=111`)
-    const playerData = await dataFetch(`${apiUrl}/players`)
+    const playerData = await dataFetch(`${apiUrl}/players?orderBy=jerseyNumber&direction=ASC`)
     const gameStats = await dataFetch(`${apiUrl}/stats?id=111`)
 
     res.render("index", { gameData, playerData, gameStats })
