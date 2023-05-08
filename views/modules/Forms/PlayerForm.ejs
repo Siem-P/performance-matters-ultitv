@@ -23,7 +23,7 @@
         </label>
         <label>
             Non-binary
-            <input type="radio" name="gender" value="Non-binary">
+            <input type="radio" name="gender" value="NonBinary">
         </label>
     </fieldset>
 
@@ -51,8 +51,6 @@
 			<!-- For each loop to through each team -->
             <!-- new <option> for each team -->
             <!-- Else -> no team available? Create new team -->
-
-            <%- console.log(allTeams); %>
 
             <% teams.forEach(team => { %>
                 <option value="<%- team.id %>"><%- team.name %></option>
