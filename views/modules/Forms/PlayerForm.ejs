@@ -44,13 +44,19 @@
 
     <label>
         Team
-        <select name="question">
+        <select name="team">
 			<option disabled selected>--- Select ---</option>
 
             <!-- If statement to check whether teams exist -->
 			<!-- For each loop to through each team -->
             <!-- new <option> for each team -->
             <!-- Else -> no team available? Create new team -->
+
+            <%- console.log(allTeams); %>
+
+            <% teams.forEach(team => { %>
+                <option value="<%- team.id %>"><%- team.name %></option>
+            <% }) %>
 			
 		</select>
     </label>

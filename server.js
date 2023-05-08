@@ -4,7 +4,6 @@ import bodyParser from "body-parser"
 const server = express();
 // Api url
 const apiUrl = "https://ultitv-api.netlify.app/api/v2"
-const postUrl = "https://ultitv-api.netlify.app/api/v2"
 
 server.set("view engine", "ejs")
 server.set("views", "./views")
@@ -24,14 +23,19 @@ server.get("/", async (req, res) => {
     const playerData = await dataFetch(`${apiUrl}/players?orderBy=jerseyNumber&direction=ASC`)
     const gameStats = await dataFetch(`${apiUrl}/stats?id=111`)
 
-    res.render("index", { gameData, playerData, gameStats })
+    const allTeams = await dataFetch(`${apiUrl}/teams`)
+
+    res.render("index", { gameData, playerData, gameStats, allTeams })
 })
 
 server.post("/playerform", async (req, res) => {
+
+    const postPlayerURL = apiUrl + "/players"
+    req.body.jerseyNumber = Number(req.body.jerseyNumber)
     console.log(req.body)
 
     
-    postJson(postTeamURL, req.body).then((data) => {
+    postJson(postPlayerURL, req.body).then((data) => {
 		
         let newPlayer = req.body
 
@@ -51,7 +55,7 @@ server.post("/playerform", async (req, res) => {
 
 server.post("/teamform", async (req, res) => {
 
-    const postTeamURL = postUrl + "/teams"
+    const postTeamURL = apiUrl + "/teams"
     req.body.seeding = Number(req.body.seeding)
     console.log(req.body)
 
