@@ -31,40 +31,49 @@ server.post("/playerform", async (req, res) => {
     console.log(req.body)
 
     
-    // postJson(postUrl, req.body).then((data) => {
+    postJson(postTeamURL, req.body).then((data) => {
 		
-    //     let newTeam = req.body
+        let newPlayer = req.body
+
     
-    //     if (data.succes) {
-    //       res.redirect("/?memberPosted=true") 
-    //     } else {   
-    //       const errormessage = `${data.message}: Mogelijk komt dit door de slug die al bestaat.`
-    //       const newplayer = { error: errormessage, values: newTeam }
-    //     }
-    //   })
+        if (data.succes) {
+          res.redirect("/?memberPosted=true") 
+        } else {
+                
+          const errormessage = `${data.message}: Mogelijk komt dit door de slug die al bestaat.`
+          const newteam = { error: errormessage, values: newPlayer }
+          console.error(errormessage)
+        }
+      })
 
     res.redirect("/")
 })
 
 server.post("/teamform", async (req, res) => {
+
+    const postTeamURL = postUrl + "/teams"
+    req.body.seeding = Number(req.body.seeding)
     console.log(req.body)
 
     // For reference
-    req.body.facts = []
-    req.body.players = []
-
-    // postJson(postUrl, req.body).then((data) => {
-		
-    //     let newTeam = req.body
+    // req.body.facts = []
+    // req.body.players = []
     
-    //     if (data.succes) {
-    //       res.redirect("/?memberPosted=true") 
-    //     } else {
+
+    postJson(postTeamURL, req.body).then((data) => {
+		
+        let newTeam = req.body
+
+    
+        if (data.succes) {
+          res.redirect("/?memberPosted=true") 
+        } else {
                 
-    //       const errormessage = `${data.message}: Mogelijk komt dit door de slug die al bestaat.`
-    //       const newplayer = { error: errormessage, values: newTeam }
-    //     }
-    //   })
+          const errormessage = `${data.message}: Mogelijk komt dit door de slug die al bestaat.`
+          const newteam = { error: errormessage, values: newTeam }
+          console.error(errormessage)
+        }
+      })
     res.redirect("/")
 })
 
