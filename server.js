@@ -4,6 +4,7 @@ import bodyParser from "body-parser"
 const server = express();
 // Api url
 const apiUrl = "https://ultitv-api.netlify.app/api/v2"
+const localUrl = "http://localhost:5173/api/v2"
 
 server.set("view engine", "ejs")
 server.set("views", "./views")
@@ -28,10 +29,14 @@ server.get("/", async (req, res) => {
     res.render("index", { gameData, playerData, gameStats, allTeams })
 })
 
+// Add player form
 server.post("/playerform", async (req, res) => {
 
-    const postPlayerURL = apiUrl + "/players"
+    // const postPlayerURL = apiUrl + "/players"
+    const postPlayerURL = localUrl + "/players"
     req.body.jerseyNumber = Number(req.body.jerseyNumber)
+    req.body.height = Number(req.body.height)
+    req.body.team = {id: req.body.team}
     console.log(req.body)
 
     
@@ -53,6 +58,7 @@ server.post("/playerform", async (req, res) => {
     res.redirect("/")
 })
 
+// Add team form
 server.post("/teamform", async (req, res) => {
 
     const postTeamURL = apiUrl + "/teams"
