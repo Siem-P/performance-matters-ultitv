@@ -36,8 +36,7 @@ server.post("/playerform", async (req, res) => {
     const postPlayerURL = localUrl + "/players"
     req.body.jerseyNumber = Number(req.body.jerseyNumber)
     req.body.height = Number(req.body.height)
-    req.body.team = {id: req.body.team}
-    console.log(req.body)
+    // console.log(req.body)
 
     
     postJson(postPlayerURL, req.body).then((data) => {
