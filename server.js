@@ -4,6 +4,7 @@ import bodyParser from "body-parser"
 const server = express();
 // Api url
 const apiUrl = "https://ultitv-api.netlify.app/api/v2"
+const postUrl = "https://ultitv-api.netlify.app/api/v2"
 
 server.set("view engine", "ejs")
 server.set("views", "./views")
@@ -29,6 +30,41 @@ server.get("/", async (req, res) => {
 server.post("/playerform", async (req, res) => {
     console.log(req.body)
 
+    
+    // postJson(postUrl, req.body).then((data) => {
+		
+    //     let newTeam = req.body
+    
+    //     if (data.succes) {
+    //       res.redirect("/?memberPosted=true") 
+    //     } else {   
+    //       const errormessage = `${data.message}: Mogelijk komt dit door de slug die al bestaat.`
+    //       const newplayer = { error: errormessage, values: newTeam }
+    //     }
+    //   })
+
+    res.redirect("/")
+})
+
+server.post("/teamform", async (req, res) => {
+    console.log(req.body)
+
+    // For reference
+    req.body.facts = []
+    req.body.players = []
+
+    // postJson(postUrl, req.body).then((data) => {
+		
+    //     let newTeam = req.body
+    
+    //     if (data.succes) {
+    //       res.redirect("/?memberPosted=true") 
+    //     } else {
+                
+    //       const errormessage = `${data.message}: Mogelijk komt dit door de slug die al bestaat.`
+    //       const newplayer = { error: errormessage, values: newTeam }
+    //     }
+    //   })
     res.redirect("/")
 })
 
@@ -38,4 +74,23 @@ async function dataFetch(url) {
         .then((response) => response.json())
         .catch((error) => error)
     return data
+}
+
+/**
+ * postJson() is a wrapper for the experimental node fetch api. It fetches the url
+ * passed as a parameter using the POST method and the value from the body paramater
+ * as a payload. It returns the response body parsed through json.
+ * @param {*} url the api endpoint to address
+ * @param {*} body the payload to send along
+ * @returns the json response from the api endpoint
+ */
+export async function postJson(url, body) {
+	console.log(2, JSON.stringify(body))
+  return await fetch(url, {
+    method: 'post',
+    body: JSON.stringify(body),
+    headers: { 'Content-Type': 'application/json' },
+  })
+    .then((response) => response.json())
+    .catch((error) => error)
 }
