@@ -10,10 +10,22 @@
         <input type="int" name="jerseyNumber" value="">
     </label>
 
-    <label>
-        Gender
-        <input type="radio" name="gender" value="">
-    </label>
+    
+    <fieldset>
+        <legend>Gender</legend>
+        <label>
+            Male
+            <input type="radio" name="gender" value="male">
+        </label>
+        <label>
+            Female
+            <input type="radio" name="gender" value="female">
+        </label>
+        <label>
+            Non-binary
+            <input type="radio" name="gender" value="non-binary">
+        </label>
+    </fieldset>
 
     <label>
         Height
@@ -32,7 +44,15 @@
 
     <label>
         Team
-        <input type="text" name="team" value="">
+        <select name="question">
+			<option disabled selected>--- Select ---</option>
+
+            <!-- If statement to check whether teams exist -->
+			<!-- For each loop to through each team -->
+            <!-- new <option> for each team -->
+            <!-- Else -> no team available? Create new team -->
+			
+		</select>
     </label>
 
     <input type="submit" value="Submit">
