@@ -12,12 +12,10 @@ server.set("port", process.env.PORT || 8000);
 
 server.use(express.static("public"));
 server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({
-  extended: true
-}));
+server.use(bodyParser.urlencoded({extended: true}));
 
 server.listen(server.get("port"), () => {
-  console.log(`Application started on http://localhost:${server.get("port")}`);
+	console.log(`Application started on http://localhost:${server.get("port")}`);
 });
 
 server.get("/", async (req, res) => {
@@ -26,17 +24,26 @@ server.get("/", async (req, res) => {
     const playerData = await dataFetch(`${apiUrl}/players?orderBy=jerseyNumber&direction=ASC&first=100`)
     const gameStats = await dataFetch(`${apiUrl}/stats?id=111`)
 
-  const allTeams = await dataFetch(`${apiUrl}/teams`);
-  const questionData = await dataFetch(`${apiUrl}/questions?type=Player`);
+    const allTeams = await dataFetch(`${apiUrl}/teams`);
+    const questionData = await dataFetch(`${apiUrl}/questions?type=Player`);
 
-  res.render("index", {
-    gameData,
-    playerData,
-    gameStats,
-    allTeams,
-    questionData,
-  });
+    res.render("index", {
+		gameData,
+		playerData,
+		gameStats,
+		allTeams,
+		questionData,
+    });
 });
+
+server.get("/forms", async (req, res) => {
+	const allTeams = await dataFetch(`${apiUrl}/teams`);
+	const playerData = await dataFetch(`${apiUrl}/players?orderBy=jerseyNumber&direction=ASC&first=100`)
+	const questionData = await dataFetch(`${apiUrl}/questions?type=Player`);
+
+    res.render("forms", { allTeams, playerData, questionData })
+})
+
 
 // Add player form
 server.post("/playerform", async (req, res) => {
