@@ -28,7 +28,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: var(--text-color);
+    /* color: var(--text-color); */
 }
 
 body{
@@ -185,6 +185,10 @@ nav{
 
 /* ---------------------------------------- NAVIGATION (end) ---------------------------------------- */
 
+
+
+
+
 /* -------------------------------------------------------------------------- */
 /*                                   Players                                  */
 /* -------------------------------------------------------------------------- */
@@ -208,6 +212,9 @@ nav{
     padding: 1rem;
     background: var(--secondary-color);
     color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
 .team-name{
@@ -255,7 +262,7 @@ nav{
 }
 
 .player-name{
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: white;
     width: 65%;
     word-break: break-all;
@@ -319,6 +326,7 @@ nav{
     display: flex;
     flex-direction: column;
     gap: 1em;
+    color: white;
 }
 
 .dialog-heading{
@@ -334,6 +342,7 @@ nav{
     font-weight: 400;
     font-size: 1.2em;
     padding: 0.1em 0.5em;
+    color: white;
 }
 
 .close-dialog{
@@ -446,6 +455,23 @@ nav{
 
 .score-count {
     color: #FFD363;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    Forms                                   */
+/* -------------------------------------------------------------------------- */
+.main-form-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.form-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border: solid 2px white;
+    padding: 1em;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -590,5 +616,7 @@ nav{
 
     .team-players{
         margin-top: unset;
+        overflow-y: scroll;
+        max-height: 100vh;
     }
 }
