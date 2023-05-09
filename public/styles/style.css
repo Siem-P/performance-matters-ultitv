@@ -38,19 +38,40 @@ body{
 
 /* ---------------------------------------- HEADER (start) ---------------------------------------- */
 
-.box-shadow-header{
-    position: absolute;
-    left: 0;
-    top: 0;   
-    width: 150%;
-    height: 100%;
-    margin-left: -25%;
-    /* box-shadow: 
-    inset 0rem 0rem 1rem .5rem rgba(255, 255, 255, 0.3), 
-    inset 0rem 0rem .5rem 0rem rgba(255, 255, 255, 0.3)
-    ; */
-    display: none;
+/* Container top elements (start) */
+
+.container-header-game-score-navigation{
+    display: flex;
+    flex-direction: column;
 }
+
+.container-header-navigation{
+    display: contents;
+}
+
+@media (min-width: 48rem){
+    .container-header-game-score-navigation{
+        width: 100vw;
+        flex-direction: row;
+        justify-content: space-evenly;
+        height: fit-content;
+        margin-top: 2rem;   
+    }
+    .container-header-navigation{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 40%;
+    }
+}
+
+@media (min-width: 90rem){
+    .container-header-game-score-navigation{
+        width: 400%;
+    }
+}
+
+/* Container top elements(end) */ 
 
 header{
     position: relative;
@@ -60,7 +81,8 @@ header{
     column-gap: 2rem;
     padding: .3rem 2.5vw;
     background-image: linear-gradient(var(--secondary-color), var(--primary-color-lighter));
-    /* background-color: var(--primary-color); */
+    /* background-color: var(--primary-color)   ; */
+    order: 1;
 }
 
 .ul-game-info{
@@ -88,7 +110,43 @@ header h1{
 .logo{
     align-self: self-start;
     width: 1.2rem;
-    filter: invert(100%) sepia(0%) saturate(7497%) hue-rotate(271deg) brightness(105%) contrast(100%);
+    filter: invert(100%) sepia(0%) saturate(7497%) hue-rotate(271deg) brightness(105%) contrast(100%); 
+}
+
+@media (min-width: 48rem){
+    header{
+        justify-content: space-between;
+        column-gap: .7rem;
+        padding: .7rem .5rem;
+        background-image: none;
+        background-color: var(--secondary-color) ;
+        order: 0;
+        border-radius: .5rem;
+        width: 100%;
+        overflow: clip;
+    }
+
+    header h1{
+        font-size: .9rem;
+    }
+
+    .logo{
+        width: 1rem;
+    }
+}
+
+@media (min-width: 1000px){
+    header{
+        padding: 1.2rem .7rem;
+    }
+
+    header h1{
+        font-size: 1.2rem;
+    }
+
+    .logo{
+        width: 1.3rem;
+    }
 }
 
 /* ---------------------------------------- HEADER (end) ---------------------------------------- */
@@ -102,6 +160,7 @@ header h1{
     margin-top: 3rem;
     height: 4rem;
     background-color: var(--secondary-color);
+    order: 2;
 }
 
 .container-flag-country{
@@ -154,7 +213,72 @@ header h1{
     .game-score{ height: 5rem }
     .score-board-score{ font-size: 2rem }
 }
-  
+
+@media screen and (min-width: 500px) {
+    .game-score-flag{
+        height: 130%;
+        transform: translateY(calc(-.3rem - 15%));
+    }
+}
+
+
+@media (min-width: 48rem){
+    .game-score{
+        padding: 0 2.5vw;
+        margin-top: 0rem;
+        height: 8rem;
+        background-color: var(--secondary-color);
+        order: 0;
+        align-items: center;
+        width: 50%;
+        border-radius: 1rem;
+    }
+    
+    .game-score-flag{
+        border-radius: 1.5rem;
+        height: 4.5rem;
+        width: auto;
+        transform: translateY(0);
+    }
+    
+    .game-score-country{
+        margin-top: .5rem;
+        font-size: 1rem;
+    }
+    
+    .score-board-score{
+        font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 100px){
+    .game-score{
+        padding: 0 2.5vw;
+        margin-top: 0rem;
+        height: 10rem;
+        background-color: var(--secondary-color);
+        order: 0;
+        align-items: center;
+        width: 50%;
+        border-radius: 1rem;
+    }
+    
+    .game-score-flag{
+        border-radius: 1.5rem;
+        height: 5.5rem;
+        width: auto;
+        transform: translateY(0);
+    }
+    
+    .game-score-country{
+        margin-top: .5rem;
+        font-size: 1.2rem;
+    }
+    
+    .score-board-score{
+        font-size: 2.5rem;
+    }
+}
 
 /* ---------------------------------------- SCOREBOARD (end) ---------------------------------------- */
 
@@ -163,6 +287,7 @@ header h1{
 nav{
     background-color: var(--secondary-color);
     margin-top: 5rem;
+    order: 3;
 }
 
 .ul-nav{
@@ -182,6 +307,59 @@ nav{
     border-bottom: .1rem solid var(--tertiary);
 }
 
+@media (min-width: 48rem){
+    nav{
+        background-color: var(--secondary-color);
+        margin-top: 0rem;
+        order: 0;
+        border-radius: .5rem;
+        width: 100%;
+    }
+    
+    .ul-nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 5vw 0 5vw;
+        list-style-type: none;
+    }
+    
+    .nav-items{
+        font-weight: 300;
+        font-size: 1.2rem;
+        padding: .5rem;
+    }
+    
+    .nav-items:nth-child(2){
+        border-bottom: .1rem solid var(--tertiary);
+    }
+}
+
+@media (min-width: 1000px){
+    nav{
+        background-color: var(--secondary-color);
+        margin-top: 0rem;
+        order: 0;
+        border-radius: .5rem;
+        width: 100%;
+    }
+    
+    .ul-nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 5vw 0 5vw;
+        list-style-type: none;
+    }
+    
+    .nav-items{
+        font-weight: 300;
+        font-size: 1.5rem;
+        padding: 1rem .5rem;
+    }
+    
+    .nav-items:nth-child(2){
+        border-bottom: .1rem solid var(--tertiary);
+    }
+}
 
 /* ---------------------------------------- NAVIGATION (end) ---------------------------------------- */
 
