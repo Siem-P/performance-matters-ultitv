@@ -1,14 +1,20 @@
-<form action="/questionsform" method="post" name="addQuestionForm">
+<form action="/questionform" method="post" name="addQuestionForm">
 
     <label>
         Question Title
-        <input type="text" name="question" value="">
+        <input type="text" name="title" value="">
     </label>
 
     <label>
-        Answer
-        <input type="text" name="answer" value="">
+        Player
+        <input type="radio" name="type" value="Player">
     </label>
+    <label>
+        Team
+        <input type="radio" name="type" value="Team">
+    </label>
+        
+    
 
     <!-- Connect a teamID or PlayerID to the question -->
     <input type="submit" value="Submit">

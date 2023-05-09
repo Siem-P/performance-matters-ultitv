@@ -33,8 +33,8 @@ server.get("/", async (req, res) => {
 // Add player form
 server.post("/playerform", async (req, res) => {
 
-    // const postPlayerURL = apiUrl + "/players"
-    const postPlayerURL = localUrl + "/players"
+    const postPlayerURL = apiUrl + "/players"
+    // const postPlayerURL = localUrl + "/players"
     req.body.jerseyNumber = Number(req.body.jerseyNumber)
     req.body.height = Number(req.body.height)
     // console.log(req.body)
@@ -61,7 +61,7 @@ server.post("/playerform", async (req, res) => {
 server.post('/factform', async (req, res) => {
   // console.log(req.body)
 
-  const postFactUrl = localUrl + "/facts"
+  const postFactUrl = apiUrl + "/facts"
 
 
   postJson(postFactUrl, req.body).then((data) => {
@@ -75,6 +75,29 @@ server.post('/factform', async (req, res) => {
             
       const errormessage = `${data.message}`
       const newteam = { error: errormessage, values: newFact }
+      console.error(errormessage)
+    }
+  })
+  res.redirect("/")
+})
+
+server.post('/questionform', async (req, res) => {
+  // console.log(req.body)
+
+  const postQuestionUrl = apiUrl + "/questions"
+
+
+  postJson(postQuestionUrl, req.body).then((data) => {
+		
+    let newQuestion = req.body
+
+
+    if (data.succes) {
+      res.redirect("/?memberPosted=true") 
+    } else {
+            
+      const errormessage = `${data.message}`
+      const newquestion = { error: errormessage, values: newQuestion }
       console.error(errormessage)
     }
   })
@@ -104,7 +127,7 @@ server.post("/teamform", async (req, res) => {
                 
           const errormessage = `${data.message}: Mogelijk komt dit door de slug die al bestaat.`
           const newteam = { error: errormessage, values: newTeam }
-          console.error(errormessage)
+          // console.error(errormessage)
         }
       })
     res.redirect("/")
