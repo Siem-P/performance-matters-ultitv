@@ -20,7 +20,8 @@
 	<%- include('./modules/Scoreboard') %>
 
 	<%- include('./modules/Forms/PlayerForm', {teams: allTeams.teams}) %>
-  <%- include('./modules/Forms/TeamForm') %>
+  	<%- include('./modules/Forms/TeamForm') %>
+  	<%- include('./modules/Forms/FactForm', {playerData, questions: questionData.questions}) %>
 </main>
 
 <%- include('./partials/footer') %>
