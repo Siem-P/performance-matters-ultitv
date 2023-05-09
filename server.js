@@ -25,8 +25,9 @@ server.get("/", async (req, res) => {
     const gameStats = await dataFetch(`${apiUrl}/stats?id=111`)
 
     const allTeams = await dataFetch(`${apiUrl}/teams`)
+    const questionData = await dataFetch(`${apiUrl}/questions?type=Player`) 
 
-    res.render("index", { gameData, playerData, gameStats, allTeams })
+    res.render("index", { gameData, playerData, gameStats, allTeams, questionData })
 })
 
 // Add player form
@@ -48,13 +49,36 @@ server.post("/playerform", async (req, res) => {
           res.redirect("/?memberPosted=true") 
         } else {
                 
-          const errormessage = `${data.message}: Mogelijk komt dit door de slug die al bestaat.`
+          const errormessage = `${data.message}`
           const newteam = { error: errormessage, values: newPlayer }
           console.error(errormessage)
         }
       })
 
     res.redirect("/")
+})
+
+server.post('/factform', async (req, res) => {
+  // console.log(req.body)
+
+  const postFactUrl = localUrl + "/facts"
+
+
+  postJson(postFactUrl, req.body).then((data) => {
+		
+    let newFact = req.body
+
+
+    if (data.succes) {
+      res.redirect("/?memberPosted=true") 
+    } else {
+            
+      const errormessage = `${data.message}`
+      const newteam = { error: errormessage, values: newFact }
+      console.error(errormessage)
+    }
+  })
+  res.redirect("/")
 })
 
 // Add team form
