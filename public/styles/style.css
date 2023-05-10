@@ -38,47 +38,88 @@ body{
 
 /* ---------------------------------------- HEADER (start) ---------------------------------------- */
 
-.box-shadow-header{
-    position: absolute;
-    left: 0;
-    top: 0;   
-    width: 150%;
-    height: 100%;
-    margin-left: -25%;
-    /* box-shadow: 
-    inset 0rem 0rem 1rem .5rem rgba(255, 255, 255, 0.3), 
-    inset 0rem 0rem .5rem 0rem rgba(255, 255, 255, 0.3)
-    ; */
-    display: none;
+/* Container top elements (start) */
+
+.container-header-game-score-navigation{
+    display: flex;
+    flex-direction: column;
 }
+
+.container-header-navigation{
+    display: contents;
+}
+
+@media (min-width: 48rem) and (max-width: 90rem){
+    .container-header-game-score-navigation{
+        width: 100vw;
+        flex-direction: row;
+        justify-content: space-evenly;
+        height: fit-content;
+        margin-top: 2rem;   
+    }
+    .container-header-navigation{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 40%;
+    }
+}
+
+@media (min-width: 90rem){
+    .container-header-game-score-navigation{
+        width: 400%;
+    }
+}
+
+/* Container top elements(end) */ 
 
 header{
     position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    column-gap: 2rem;
+    column-gap: 1rem;
     padding: .3rem 2.5vw;
     background-image: linear-gradient(var(--secondary-color), var(--primary-color-lighter));
-    /* background-color: var(--primary-color); */
+    /* background-color: var(--primary-color)   ; */
+    order: 1;
+}
+
+.header-li-items-container{
+    /* border: 1px solid blue;  */
+    overflow: hidden;
 }
 
 .ul-game-info{
     display: flex;
     flex-direction: row;
-    overflow: clip;
     column-gap: .5rem;
     list-style-type: none;
+    /* border: 1px solid red; */
+    width: fit-content;
+    animation: headerAnimation 15s linear infinite;
+}
+
+@keyframes headerAnimation {
+    0%{
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(-20%);
+    }
+    100%{
+        transform: translateX(0);
+    }
 }
 
 .li-game-info{
     white-space: nowrap;
 }
 
-header h1::after{
+/* header h1::after{
     content: '•';
     padding-left: .5rem;
-}
+} */
 
 header h1{
     font-weight: 300;
@@ -86,14 +127,51 @@ header h1{
 }
 
 .logo{
+    margin-left: -1rem;
     align-self: self-start;
     width: 1.2rem;
-    filter: invert(100%) sepia(0%) saturate(7497%) hue-rotate(271deg) brightness(105%) contrast(100%);
+    filter: invert(100%) sepia(0%) saturate(7497%) hue-rotate(271deg) brightness(105%) contrast(100%); 
+}
+
+@media (min-width: 48rem) and (max-width: 90rem){
+    header{
+        justify-content: space-between;
+        column-gap: .7rem;
+        padding: .7rem .5rem;
+        background-image: none;
+        background-color: var(--secondary-color) ;
+        order: 0;
+        border-radius: .5rem;
+        width: 100%;
+        overflow: clip;
+    }
+
+    header h1{
+        font-size: .9rem;
+    }
+
+    .logo{
+        width: 1rem;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 90rem){
+    header{
+        padding: 1.2rem .7rem;
+    }
+
+    header h1{
+        font-size: 1.2rem;
+    }
+
+    .logo{
+        width: 1.3rem;
+    }
 }
 
 /* ---------------------------------------- HEADER (end) ---------------------------------------- */
 
-/* ---------------------------------------- SCOREBOARD (start) ---------------------------------------- */
+/* ---------------------------------------- GAMESCORE (start) ---------------------------------------- */
 
 .game-score{
     display: flex;
@@ -102,6 +180,7 @@ header h1{
     margin-top: 3rem;
     height: 4rem;
     background-color: var(--secondary-color);
+    order: 2;
 }
 
 .container-flag-country{
@@ -150,19 +229,104 @@ header h1{
     font-size: 1rem;
 }
 
-@media screen and (min-width: 370px) {
+@media (min-width: 370px) and (max-width: 90rem) {
     .game-score{ height: 5rem }
     .score-board-score{ font-size: 2rem }
 }
-  
 
-/* ---------------------------------------- SCOREBOARD (end) ---------------------------------------- */
+@media (min-width: 500px) and (max-width: 90rem) {
+    .game-score-flag{
+        height: 130%;
+        transform: translateY(calc(-.3rem - 15%));
+    }
+}
+
+
+@media (min-width: 48rem) and (max-width: 90rem){
+    .game-score{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 2.5vw;
+        margin-top: 3rem;
+        height: 4rem;
+        background-color: var(--secondary-color);
+        order: 2;
+
+        padding: 0 2.5vw;
+        margin-top: 0rem;
+        height: 8rem;
+        background-color: var(--secondary-color);
+        order: 0;
+        align-items: center;
+        width: 50%;
+        border-radius: 1rem;
+    }
+    
+    .game-score-flag{
+        border-radius: 1.5rem;
+        height: 4.5rem;
+        width: auto;
+        transform: translateY(0);
+    }
+    
+    .game-score-country{
+        margin-top: .5rem;
+        font-size: 1rem;
+    }
+    
+    .score-board-score{
+        font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 90rem){
+    .game-score{
+        padding: 0 2.5vw;
+        margin-top: 0rem;
+        height: 10rem;
+        background-color: var(--secondary-color);
+        order: 0;
+        align-items: center;
+        width: 50%;
+        border-radius: 1rem;
+    }
+    
+    .game-score-flag{
+        border-radius: 1.5rem;
+        height: 5.5rem;
+        width: auto;
+        transform: translateY(0);
+    }
+    
+    .game-score-country{
+        margin-top: .5rem;
+        font-size: 1.2rem;
+    }
+    
+    .score-board-score{
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 90rem){
+    .game-score{
+        height: 5rem;
+    }
+    
+    .score-board-score{
+        font-size: 2rem;
+    }
+}
+
+
+/* ---------------------------------------- GAMESCORE (end) ---------------------------------------- */
 
 /* ---------------------------------------- NAVIGATION (start) ---------------------------------------- */
 
 nav{
     background-color: var(--secondary-color);
     margin-top: 5rem;
+    order: 3;
 }
 
 .ul-nav{
@@ -182,6 +346,59 @@ nav{
     border-bottom: .1rem solid var(--tertiary);
 }
 
+@media (min-width: 48rem) and (max-width: 90rem){
+    nav{
+        background-color: var(--secondary-color);
+        margin-top: 0rem;
+        order: 0;
+        border-radius: .5rem;
+        width: 100%;
+    }
+    
+    .ul-nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 5vw 0 5vw;
+        list-style-type: none;
+    }
+    
+    .nav-items{
+        font-weight: 300;
+        font-size: 1.2rem;
+        padding: .5rem;
+    }
+    
+    .nav-items:nth-child(2){
+        border-bottom: .1rem solid var(--tertiary);
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 90rem){
+    nav{
+        background-color: var(--secondary-color);
+        margin-top: 0rem;
+        order: 0;
+        border-radius: .5rem;
+        width: 100%;
+    }
+    
+    .ul-nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 5vw 0 5vw;
+        list-style-type: none;
+    }
+    
+    .nav-items{
+        font-weight: 300;
+        font-size: 1.5rem;
+        padding: 1rem .5rem;
+    }
+    
+    .nav-items:nth-child(2){
+        border-bottom: .1rem solid var(--tertiary);
+    }
+}
 
 /* ---------------------------------------- NAVIGATION (end) ---------------------------------------- */
 
