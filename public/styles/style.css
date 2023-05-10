@@ -36,6 +36,8 @@ body{
     font: 100%/1.4 "Roboto Slab", monospace;
 }
 
+
+
 /* ---------------------------------------- HEADER (start) ---------------------------------------- */
 
 /* Container top elements (start) */
@@ -43,6 +45,7 @@ body{
 .container-header-game-score-navigation{
     display: flex;
     flex-direction: column;
+    color: var(--text-color);
 }
 
 .container-header-navigation{
@@ -62,6 +65,13 @@ body{
         justify-content: space-between;
         flex-direction: column;
         width: 40%;
+        row-gap: 2rem;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 90rem){
+    .container-header-navigation{
+        row-gap: 1rem;
     }
 }
 
@@ -136,7 +146,7 @@ header h1{
 @media (min-width: 48rem) and (max-width: 90rem){
     header{
         justify-content: space-between;
-        column-gap: .7rem;
+        /* column-gap: .7rem; */
         padding: .7rem .5rem;
         background-image: none;
         background-color: var(--secondary-color) ;
@@ -152,6 +162,7 @@ header h1{
 
     .logo{
         width: 1rem;
+        margin-left: 0;
     }
 }
 
@@ -326,6 +337,7 @@ header h1{
 nav{
     background-color: var(--secondary-color);
     margin-top: 5rem;
+    margin-bottom: 2rem;
     order: 3;
 }
 
@@ -343,7 +355,7 @@ nav{
 }
 
 .nav-items:nth-child(2){
-    border-bottom: .1rem solid var(--tertiary);
+    /* border-bottom: .1rem solid var(--tertiary); */
 }
 
 @media (min-width: 48rem) and (max-width: 90rem){
@@ -366,10 +378,6 @@ nav{
         font-weight: 300;
         font-size: 1.2rem;
         padding: .5rem;
-    }
-    
-    .nav-items:nth-child(2){
-        border-bottom: .1rem solid var(--tertiary);
     }
 }
 
@@ -394,10 +402,6 @@ nav{
         font-size: 1.5rem;
         padding: 1rem .5rem;
     }
-    
-    .nav-items:nth-child(2){
-        border-bottom: .1rem solid var(--tertiary);
-    }
 }
 
 /* ---------------------------------------- NAVIGATION (end) ---------------------------------------- */
@@ -412,7 +416,7 @@ nav{
 .players{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .team-players{
