@@ -57,7 +57,7 @@ server.post("/playerform", async (req, res) => {
   postJson(postPlayerURL, req.body).then((data) => {
     let newPlayer = req.body;
 
-    if (data.status == 200) {
+    if (data. status == 200) {
       res.redirect("/");
       console.log("Status 200: Done!")
     } else if (data.status == 400){
