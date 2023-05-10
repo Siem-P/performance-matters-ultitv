@@ -621,26 +621,27 @@ nav{
 
 .scoreboard {
     margin-top: 5em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
     width: 100%;
     background-color: var(--secondary-color);
     color: #fff;
     min-height: 10em;
+    border-radius: .5rem;
 }
 
-.ul-container {
+
+.grid-container {
     margin-top: 1em;
-    display: flex;
-    flex-direction: column;
-    row-gap: 0.3em;
-    column-gap: 0.3em;
+    display: grid;
+    grid-template-columns: 2fr 0.5fr 2fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    /* row-gap: 0.3em; */
+    /* column-gap: 0.3em; */
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-.ul-container ul li {
-    list-style-type: none;
 }
 
 .score-info-container {
@@ -651,14 +652,18 @@ nav{
 }
 
 .score-player-card {
+    grid-column: 1;
+    
     display: flex;
     flex-direction: row;
+    justify-self: end;
     justify-content: space-around;
     border: 0.5px solid #5E5E5E;
     padding: 0 0.5em;
+    border-radius: 0.3em;
     align-items: center;
     min-width: 10em;
-    width: auto;
+    width: 10em;
     min-height: 1.75em;
     background-color: #D9D9D9;
     color: black;
@@ -667,6 +672,7 @@ nav{
 }
 
 .bulletpoint {
+    grid-column: 2;
     width: 0.8em;
     margin: auto;
     height: 0.8em;
@@ -674,9 +680,17 @@ nav{
     background-color: #D9D9D9;
 }
 
+.score-minute-wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 1em;
+    grid-column: 3;
+}
 .score-count {
     color: #FFD363;
 }
+
+
 
 /* -------------------------------------------------------------------------- */
 /*                                    Forms                                   */

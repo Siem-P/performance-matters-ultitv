@@ -27,12 +27,13 @@ server.get("/", async (req, res) => {
     const allTeams = await dataFetch(`${apiUrl}/teams`);
     const questionData = await dataFetch(`${apiUrl}/questions?type=Player`);
 
+    console.log(gameStats);
     res.render("index", {
 		gameData,
 		playerData,
 		gameStats,
 		allTeams,
-		questionData,
+		questionData
     });
 });
 
@@ -56,15 +57,24 @@ server.post("/playerform", async (req, res) => {
   postJson(postPlayerURL, req.body).then((data) => {
     let newPlayer = req.body;
 
-    if (data.succes) {
-      res.redirect("/?memberPosted=true");
-    } else {
+    if (data.status == 200) {
+      res.redirect("/");
+      console.log("Status 200: Done!")
+    } else if (data.status == 400){
       const errormessage = `${data.message}`;
       const newteam = {
         error: errormessage,
         values: newPlayer
       };
-      console.error(errormessage);
+      console.error("Status 400:" + errormessage);
+
+    } else if(data.status == 500) {
+      const errormessage = `${data.message}`;
+      const newteam = {
+        error: errormessage,
+        values: newPlayer
+      };
+      console.error("Status 500:" + errormessage);
     }
   });
 
