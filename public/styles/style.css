@@ -588,6 +588,7 @@ nav{
     font-weight: 400;
     display: block;
     margin-right: 0.5em;
+    color: white;
 }
 
 .close-dialog:hover{
