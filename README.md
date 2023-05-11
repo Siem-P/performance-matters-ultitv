@@ -51,7 +51,7 @@ EJS is een templating language voor het genereren van HTML met JavaScript. Het z
 ExpressJS is een NodeJS framework. Express helpt binnen dit project bij het verwerken van API requests en responses.
 
 ### UltiTV API
-Dit project maakt gebruik van de UltiTV API. Deze API is tegelijkertijd met dit project ontwikkeld. 
+Dit project maakt gebruik van de V2 versie van de UltiTV API. Deze API heb ik tegelijkertijd met dit project ontwikkeld. 
 
 [UltiTV API](https://github.com/Tristandemuijnck/ultitv-api-svelte/tree/api)
 
