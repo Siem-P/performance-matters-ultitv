@@ -17,6 +17,9 @@ UltiTV commentary tool - Een tool met alle benodigde info voor het geven van com
 <!-- Voeg een link toe naar Github Pages 🌐-->
 Dit project omvat een tool met alle benodigde info voor het geven van commentaar op een ultimate frisbee wedstrijd. Denk hierbij aan team informatie, scores, spelers informatie en game informatie.
 
+<img src="https://github.com/Tristandemuijnck/performance-matters-ultitv/assets/43402897/185b442d-33b5-4550-b1d4-09d8fc2cbe4b" width=600>
+
+
 ## 🪚 Gebruik
 <!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
 Deze tool is zowel lokaal te gebruiken als online. Lokaal gebruik is bedoeld voor developers en zorgt ervoor dat er mogelijke verbeteringen kunnen worden toegepast op het project. Online gebruik is bedoeld voor de eindgebruiker.
