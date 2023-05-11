@@ -27,7 +27,6 @@ server.get("/", async (req, res) => {
     const allTeams = await dataFetch(`${apiUrl}/teams`);
     const questionData = await dataFetch(`${apiUrl}/questions?type=Player`);
 
-    console.log(gameStats);
     res.render("index", {
 		gameData,
 		playerData,
